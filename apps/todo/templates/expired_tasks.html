@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% block title %}Expired tasks{% endblock %}
+{% block content %}
+    {% load custom_tags %}
+    <h1>Due Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li><a href="/todo/{{ task.id }}">{{ task.title|capitalize }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

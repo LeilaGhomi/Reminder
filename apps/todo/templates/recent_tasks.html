@@ -1,0 +1,11 @@
+{% block recent %}
+    <div>
+        <h2>Latest Tasks:</h2>
+        <ul>
+            {% for task in tasks %}
+                <br>
+                <li><a href="/todo/{{ task.id }}">{{ task.title|title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

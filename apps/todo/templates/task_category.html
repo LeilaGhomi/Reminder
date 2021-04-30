@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Task Categories{% endblock %}
+{% block content %}
+    <body>
+    <h1>Categories</h1>
+    <ul>
+        {% for category in categories %}
+            {% if category not in cat_with_no_task %}
+                <li><a href="{% url 'category_detail' category.id %}">{{ category.category_name|title }}</a></li>
+            {% else %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <br>
+    <h1>Categories With no Tasks</h1>
+    <ul>
+        {% for category in cat_with_no_task %}
+            <li><a href="{% url 'category_detail' category.id %}">{{ category.category_name|title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

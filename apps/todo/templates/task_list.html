@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% block title %}Task List{% endblock %}
+{% block content %}
+    <h1>Tasks</h1>
+    <ul class="tasks">
+        {% if task_list %}
+            {#        <li style="font-weight: bold">title</li>#}
+            {% for task in task_list %}
+                <li><a href="/todo/{{ task.id }}">{{ task.title | capitalize }}</a></li>
+            {% endfor %}
+{#            <p><a href=""></a><input type="button" value="Download"></p><br><br>#}
+        {% else %}
+            <p>No Task to Do!!</p>
+        {% endif %}
+
+    </ul>
+{% endblock %}

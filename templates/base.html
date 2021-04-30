@@ -1,0 +1,40 @@
+{% load static %}
+{% load custom_tags %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}base template{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+{% block base %}
+    <header>
+        <span>Reminder</span>
+    </header>
+    <nav class="header">
+        <ul style="display: flex; justify-content: space-around">
+            <li><a href="{% url 'admin:index' %}">Admin panel</a></li>
+            <li><a href="{% url 'task_category' %}">Categories</a></li>
+            <li><a href="{% url 'tasks' %}">Tasks</a></li>
+            <li><a href="{% url 'add_new_task' %}">ADD New task</a></li>
+            <li><a href="{% url 'add_new_category' %}">ADD New Category</a></li>
+        </ul>
+    </nav>
+    <aside>
+        {% recent_tasks %}
+        <div><h2><a href="{% url 'expired_tasks' %}">Due tasks</a></h2></div>
+    </aside>
+{% endblock %}
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer class="footer">
+    <ul>
+        <li>09358990405</li>
+        <li>leilaghomi73@gmail.com</li>
+    </ul>
+</footer>
+</body>
+</html>

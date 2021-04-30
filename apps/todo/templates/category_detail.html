@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Tasks of Category {% endblock %}
+{% block content %}
+    <ul>
+        {% if object.task_set.all %}
+            {% for task in object.task_set.all %}
+                <li><a href={{ task.get_absolute_url }}>{{ task.title|title }}</a></li>
+            {% endfor %}
+        {% else %}
+            <h2>No task!</h2>
+        {% endif %}
+    </ul>
+{% endblock %}

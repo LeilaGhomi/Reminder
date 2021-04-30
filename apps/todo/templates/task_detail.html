@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+{% block title %}Task Detail{% endblock %}
+{% block content %}
+    <div>
+        <table class="detail">
+            <tr>
+                <th>title</th>
+                <th>notes</th>
+                <th>category</th>
+                <th>priority</th>
+                <th>schedule date</th>
+                <th>schedule time</th>
+                <th>remaining time</th>
+                <th>done</th>
+            </tr>
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.notes }}</td>
+                <td>{{ task.category }}</td>
+                <td>{{ task.priority }}</td>
+                <td>{{ task.schedule.date }}</td>
+                <td>{{ task.schedule.time }}</td>
+                <td>{% re_time task %}</td>
+                {#                    <td>{{ task.remaining_time }}</td>#}
+                <td>{{ task.done }}</td>
+            </tr>
+        </table>
+        <center>
+            <a href="/todo/{{ task.id }}/update/"><input style="width: 10%;" type="submit" value="Update"></a>
+        </center>
+    </div>
+    {#    <form method="post">#}
+    {#        {% csrf_token %}#}
+    {#        <table>#}
+    {#            <tr>{{ form.as_p }}</tr>#}
+    {#        </table>#}
+    {#      <input type="submit" value="Update">#}
+    {#    </form>#}
+{% endblock %}
